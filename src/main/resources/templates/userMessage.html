@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Id</th>
+        <th>用户名</th>
+        <th>姓名</th>
+        <th>密码</th>
+        <th>盐</th>
+        <th>状态</th>
+    </tr>
+    <tr th:each="user,iterStat : ${userList}">
+        <td th:text="${iterStat.count}"></td>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.salt}"></td>
+        <td th:text="${user.state}"></td>
+    </tr>
+</table>
+</body>
+</html>

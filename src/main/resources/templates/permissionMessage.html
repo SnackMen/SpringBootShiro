@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Id</th>
+        <th>父亲Id</th>
+        <th>父亲Ids</th>
+        <th>权限</th>
+        <th>可用</th>
+        <th>说明</th>
+        <th>源</th>
+        <th>url</th>
+    </tr>
+    <tr th:each="permission,iterStat : ${permissionList}">
+        <td th:text="${iterStat.count}" ></td>
+        <td th:text="${permission.id}"></td>
+        <td th:text="${permission.parentId}"></td>
+        <td th:text="${permission.parentIds}"></td>
+        <td th:text="${permission.permission}"></td>
+        <td th:text="${permission.available}"></td>
+        <td th:text="${permission.name}"></td>
+        <td th:text="${permission.resourceType}"></td>
+        <td th:text="${permission.url}"></td>
+    </tr>
+</table>
+</body>
+</html>

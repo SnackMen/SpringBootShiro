@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>用户信息展示</title>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/message.js"></script>
+    <!--<script src="../static/js/message.js"></script>-->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="/css/font-awesome.min.css" />-->
+    <link href="/css/userInfo.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container-fluid" style="height: 100%;">
+    <div class="row">
+        <div class="col-md-2 left-div" style="">
+            <div>
+                <p>
+                       <b class="mouseover" id="userMessage">用户信息</b>
+                </p>
+
+                <p>
+                    <b class="mouseover" id="permissionMessage">
+                        权限信息
+                    </b>
+                </p>
+                <p>
+                    <b class="mouseover" id="roleMessage">
+                        角色信息
+                    </b>
+                </p>
+                <p>
+                    <b class="mouseover" id="userRole">
+                        用户角色信息
+                    </b>
+                </p>
+                <p>
+                    <b class="mouseover" id="rolePermission">
+                        角色权限信息
+                    </b>
+                </p>
+                <p>
+                    <b class="mouseover" id="logout">
+                        登出
+                    </b>
+                </p>
+            </div>
+        </div>
+        <div class="col-md-10" style="padding: 0">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12" id="messageTable">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>#</th>
+                                <th>Id</th>
+                                <th>用户名</th>
+                                <th>姓名</th>
+                                <th>密码</th>
+                                <th>盐</th>
+                                <th>状态</th>
+                            </tr>
+                            <tr th:each="user,iterStat : ${userList}">
+                                <td th:text="${iterStat.count}"></td>
+                                <td th:text="${user.id}"></td>
+                                <td th:text="${user.username}"></td>
+                                <td th:text="${user.name}"></td>
+                                <td th:text="${user.password}"></td>
+                                <td th:text="${user.salt}"></td>
+                                <td th:text="${user.state}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
