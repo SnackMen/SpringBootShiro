@@ -39,5 +39,6 @@ public class RegisterController {
             return "successRegister";
         else
             return "errorRegister";
+
     }
 }
