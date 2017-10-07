@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
->
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8" />
     <title>用户登录</title>
@@ -8,6 +7,15 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
     <!--http://windows-1252100560.coscd.myqcloud.com/background.jpg-->
+    <script>
+        /**
+         * 刷新验证码
+         */
+        function flushValidate() {
+            var now = new Date();
+            document.getElementById("validatecode").src="/validatecode?code=" + now.getTime();
+        }
+    </script>
 </head>
 <body style="background-image: url('');background-size: 100% auto;">
     <div class="container" style="margin: 10% 0 0 0">
@@ -23,6 +31,13 @@
                     <div class="form-group">
                         <label for="password">密码</label>
                         <input type="password" id="password" name="password" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="randomcode">验证码</label>
+                        <div class="row">
+                            <div class="col-md-8"><input type="text" id="randomcode"  name="randomcode" class="form-control" /></div>
+                            <div class="col-md-4" style="padding: 0"><img src="/validatecode" style="height: auto;width: auto; cursor:pointer;" alt="验证码" id="validatecode" onclick="flushValidate()" /></div>
+                        </div>
                     </div>
                     <div class="checkbox">
                         <label>
