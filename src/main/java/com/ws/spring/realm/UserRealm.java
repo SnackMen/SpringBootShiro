@@ -50,6 +50,7 @@ public class UserRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+        //该token来自于filter中，可以在filter中重写tokern方法，使得其可以验证更多信息
         UsernamePasswordToken token = (UsernamePasswordToken)authenticationToken;
         System.out.println(token.isRememberMe());
         String username = token.getUsername();

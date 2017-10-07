@@ -10,6 +10,9 @@ import javax.servlet.http.HttpSession;
 public class UserLoginFormAuthenticationFilter extends FormAuthenticationFilter {
 
     @Override
+    /**
+     * 自定义filter用来替代默认filter增加验证的多样性
+     */
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         // 在这里进行验证码的校验
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
