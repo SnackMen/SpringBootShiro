@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>用户登录</title>
@@ -16,8 +16,25 @@
             document.getElementById("validatecode").src="/validatecode?code=" + now.getTime();
         }
     </script>
+    <style>
+        a:link{
+            text-decoration:none;
+        }
+        a:visited{
+            text-decoration:none;
+        }
+        a:hover{
+            text-decoration:none;
+        }
+        a:active{
+            text-decoration:none;
+        }
+        #forgetpassword{
+            float: right;
+        }
+    </style>
 </head>
-<body style="background-image: url('');background-size: 100% auto;">
+<body style="background-size: 100% auto;">
     <div class="container" style="margin: 10% 0 0 0">
         <div class="row">
             <div class="col-md-3 col-md-offset-8">
@@ -46,6 +63,8 @@
                     </div>
                     <input type="submit" value="提交" class="btn btn-success btn-block" />
                 </form>
+                <a href="/register" target="_blank">还没有账号？快去注册吧！</a>
+                <a href="" target="_blank" id="forgetpassword">忘记密码</a>
             </div>
         </div>
     </div>
