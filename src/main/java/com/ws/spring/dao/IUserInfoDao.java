@@ -1,9 +1,7 @@
 package com.ws.spring.dao;
 
 import com.ws.spring.entity.UserInfo;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
@@ -44,5 +42,9 @@ public interface IUserInfoDao {
     @Select("select uid from user_info where username=#{username}")
     Integer getIdByUsername(String username);
 
+
+    @Insert("insert into user_info(username, name, password, salt, state, email) values (#{username}, #{name}, #{password}, #{salt}, #{state}, #{email})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    Integer registerMessage(UserInfo userInfo);
 
 }

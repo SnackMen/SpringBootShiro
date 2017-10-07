@@ -18,6 +18,8 @@ public class UserInfo implements Serializable {
 
     private Integer state;
 
+    private String email;
+
     private SysRole sysRole;
 
     public UserInfo(){
@@ -86,6 +88,14 @@ public class UserInfo implements Serializable {
         this.state = state;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "UserInfo{" +
@@ -95,6 +105,8 @@ public class UserInfo implements Serializable {
                 ", password='" + password + '\'' +
                 ", salt='" + salt + '\'' +
                 ", state=" + state +
+                ", email='" + email + '\'' +
+                ", sysRole=" + sysRole +
                 '}';
     }
 }

@@ -60,6 +60,7 @@
                                 <th>密码</th>
                                 <th>盐</th>
                                 <th>状态</th>
+                                <th>邮箱</th>
                             </tr>
                             <tr th:each="user,iterStat : ${userList}">
                                 <td th:text="${iterStat.count}"></td>
@@ -69,6 +70,7 @@
                                 <td th:text="${user.password}"></td>
                                 <td th:text="${user.salt}"></td>
                                 <td th:text="${user.state}"></td>
+                                <td th:text="${user.email}"></td>
                             </tr>
                         </table>
                     </div>

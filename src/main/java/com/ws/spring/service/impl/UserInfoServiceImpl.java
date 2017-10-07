@@ -29,4 +29,9 @@ public class UserInfoServiceImpl implements IUserInfoService {
     public String getPasswordByUserName(String username) {
         return iUserInfoDao.getPasswordByUserName(username);
     }
+
+    @Override
+    public Integer registerMessage(UserInfo userInfo) {
+        return iUserInfoDao.registerMessage(userInfo);
+    }
 }

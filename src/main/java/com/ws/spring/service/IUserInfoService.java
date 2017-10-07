@@ -11,4 +11,6 @@ public interface IUserInfoService {
     UserInfo getUserById(Integer id);
 
     String getPasswordByUserName(String username);
+
+    Integer registerMessage(UserInfo userInfo);
 }

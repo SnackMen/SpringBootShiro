@@ -1,5 +1,7 @@
 package com.ws.spring.dao;
 
+import com.ws.spring.entity.UserInfo;
+import com.ws.spring.util.MD5Password;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,6 +14,17 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class IUserInfoDaoTest {
+    @Test
+    public void registerMessage() throws Exception {
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUsername("wangshu");
+        userInfo.setPassword(MD5Password.md5Entry("123456"));
+        userInfo.setSalt(MD5Password.md5Entry("123456"));
+        userInfo.setName("winson");
+        userInfo.setEmail("vipkia@sina.cn");
+        userInfo.setState(0);
+        System.out.println(iUserInfoDao.registerMessage(userInfo));
+    }
 
 
     @Autowired
