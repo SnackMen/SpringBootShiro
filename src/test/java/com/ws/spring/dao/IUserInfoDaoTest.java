@@ -15,6 +15,11 @@ import static org.junit.Assert.*;
 @SpringBootTest
 public class IUserInfoDaoTest {
     @Test
+    public void activateAccount() throws Exception {
+        System.out.println(iUserInfoDao.activateAccount("wangshu"));
+    }
+
+    @Test
     public void registerMessage() throws Exception {
         UserInfo userInfo = new UserInfo();
         userInfo.setUsername("wangshu");

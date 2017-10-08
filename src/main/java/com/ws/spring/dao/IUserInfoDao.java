@@ -47,4 +47,6 @@ public interface IUserInfoDao {
     @Options(useGeneratedKeys = true, keyProperty = "id")
     Integer registerMessage(UserInfo userInfo);
 
+    @Update("update user_info set state = 1 where username = #{username}")
+    Integer activateAccount(String username);
 }

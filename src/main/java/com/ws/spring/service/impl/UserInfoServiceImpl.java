@@ -34,4 +34,9 @@ public class UserInfoServiceImpl implements IUserInfoService {
     public Integer registerMessage(UserInfo userInfo) {
         return iUserInfoDao.registerMessage(userInfo);
     }
+
+    @Override
+    public Integer activateAccount(String username) {
+        return iUserInfoDao.activateAccount(username);
+    }
 }

@@ -89,7 +89,11 @@
 			<artifactId>pagehelper</artifactId>
 			<version>4.1.0</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>

@@ -13,4 +13,6 @@ public interface IUserInfoService {
     String getPasswordByUserName(String username);
 
     Integer registerMessage(UserInfo userInfo);
+
+    Integer activateAccount(String username);
 }

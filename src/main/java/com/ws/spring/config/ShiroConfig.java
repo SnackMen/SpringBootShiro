@@ -71,6 +71,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/validatecode","anon");
         //注册页面
         filterChainDefinitionMap.put("/register","anon");
+        filterChainDefinitionMap.put("/activation","anon");
         filterChainDefinitionMap.put("/registerUser","anon");
         filterChainDefinitionMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilters(filterMap);
