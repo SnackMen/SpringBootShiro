@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import java.util.*;
 
 import javax.management.relation.RoleInfo;
 
@@ -14,6 +15,16 @@ import static org.junit.Assert.*;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class ISysRoleDaoTest {
+    @Test
+    public void getRolePermissionInfo() throws Exception {
+        System.out.println(iSysRoleDao.getRolePermissionInfo());
+    }
+
+    @Test
+    public void getRoleUserInfo() throws Exception {
+        List<SysRole> list = iSysRoleDao.getRoleUserInfo();
+        System.out.println(list.toString());
+    }
 
     @Test
     public void getSysRoleUserById() throws Exception {

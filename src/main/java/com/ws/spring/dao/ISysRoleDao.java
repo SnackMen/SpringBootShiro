@@ -78,4 +78,31 @@ public interface ISysRoleDao {
     })
     SysRole getRolePermissionByUid(Integer uid);
 
+    @Select("select * from sys_role t, sys_user_role u where t.id=u.role_id")
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "available", column = "available"),
+            @Result(property = "description", column = "description"),
+            @Result(property = "role", column = "role"),
+            @Result(property = "userInfoList", column = "uid",
+                    many = @Many(
+                            select = "com.ws.spring.dao.IUserInfoDao.getUserById",
+                            fetchType = FetchType.EAGER
+                    )),
+    })
+    List<SysRole> getRoleUserInfo();
+
+    @Select("select * from sys_role t , sys_role_permission u where u.role_id = t.id")
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "available", column = "available"),
+            @Result(property = "description", column = "description"),
+            @Result(property = "role", column = "role"),
+            @Result(property = "sysPermissionList", column = "permission_id",
+                    many = @Many(
+                            select = "com.ws.spring.dao.ISysPermissionDao.getPermissionById",
+                            fetchType = FetchType.EAGER
+                    ))
+    })
+    List<SysRole> getRolePermissionInfo();
 }

@@ -77,5 +77,15 @@ public class SysRoleAndPermissionServiceImpl implements ISysRoleAndPermissionSer
         return iSysRoleDao.getRolePermissionByUid(uid);
     }
 
+    @Override
+    public List<SysRole> getRoleUserInfo() {
+        return iSysRoleDao.getRoleUserInfo();
+    }
+
+    @Override
+    public List<SysRole> getRolePermissionInfo() {
+        return iSysRoleDao.getRolePermissionInfo();
+    }
+
 
 }

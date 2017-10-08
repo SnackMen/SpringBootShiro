@@ -19,14 +19,14 @@
         <th>描述</th>
         <th>角色</th>
     </tr>
-    <tr th:each="user,iterStat : ${userRole.userInfoList}">
+    <tr th:each="userRole,iterStat : ${userRoleList}">
         <td th:text="${iterStat.count}"></td>
-        <td th:text="${user.id}"></td>
-        <td th:text="${user.username}"></td>
-        <td th:text="${user.name}"></td>
-        <td th:text="${user.password}"></td>
-        <td th:text="${user.salt}"></td>
-        <td th:text="${user.state}"></td>
+        <td th:text="${userRole.userInfoList[0].id}"></td>
+        <td th:text="${userRole.userInfoList[0].username}"></td>
+        <td th:text="${userRole.userInfoList[0].name}"></td>
+        <td th:text="${userRole.userInfoList[0].password}"></td>
+        <td th:text="${userRole.userInfoList[0].salt}"></td>
+        <td th:text="${userRole.userInfoList[0].state}"></td>
         <td th:text="${userRole.id}"></td>
         <td th:text="${userRole.available}"></td>
         <td th:text="${userRole.description}"></td>

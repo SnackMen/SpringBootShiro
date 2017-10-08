@@ -35,4 +35,16 @@ public interface ISysRoleAndPermissionService {
      */
     SysRole getRolePermissionByUsername(String username);
 
+
+    /**
+     * 获取所有的用户角色信息
+     * @return
+     */
+    List<SysRole> getRoleUserInfo();
+
+    /**
+     * 获取所有角色权限信息
+     * @return
+     */
+    List<SysRole> getRolePermissionInfo();
 }

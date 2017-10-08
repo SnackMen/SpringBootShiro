@@ -73,8 +73,9 @@ public class UserController {
     @PostMapping("/userRole")
     @RequiresRoles(value={"admin"})
     public String getUserRole(ModelMap modelMap, HttpSession session){
-        SysRole sysRole = iSysRoleAndPermissionService.getUserRoleByUsername(session.getAttribute("username").toString());
-        modelMap.addAttribute("userRole", sysRole);
+//        SysRole sysRole = iSysRoleAndPermissionService.getUserRoleByUsername(session.getAttribute("username").toString());
+        List<SysRole> list = iSysRoleAndPermissionService.getRoleUserInfo();
+        modelMap.addAttribute("userRoleList", list);
         return "userRole";
     }
 
@@ -87,8 +88,9 @@ public class UserController {
     @PostMapping("/rolePermission")
     @RequiresPermissions("userInfo:add")
     public String getRolePermission(ModelMap modelMap, HttpSession session){
-        SysRole sysRole = iSysRoleAndPermissionService.getRolePermissionByUsername(session.getAttribute("username").toString());
-        modelMap.addAttribute("rolePermission", sysRole);
+//        SysRole sysRole = iSysRoleAndPermissionService.getRolePermissionByUsername(session.getAttribute("username").toString());
+        List<SysRole> list = iSysRoleAndPermissionService.getRolePermissionInfo();
+        modelMap.addAttribute("rolePermissionList", list);
         return "rolePermission";
     }
 

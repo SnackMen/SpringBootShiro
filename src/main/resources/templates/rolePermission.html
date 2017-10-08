@@ -21,20 +21,20 @@
         <th>源</th>
         <th>url</th>
     </tr>
-    <tr th:each="permission,iterStat : ${rolePermission.sysPermissionList}">
+    <tr th:each="permission,iterStat : ${rolePermissionList}">
         <td th:text="${iterStat.count}" ></td>
-        <td th:text="${rolePermission.id}"></td>
-        <td th:text="${rolePermission.available}"></td>
-        <td th:text="${rolePermission.description}"></td>
-        <td th:text="${rolePermission.role}"></td>
         <td th:text="${permission.id}"></td>
-        <td th:text="${permission.parentId}"></td>
-        <td th:text="${permission.parentIds}"></td>
-        <td th:text="${permission.permission}"></td>
         <td th:text="${permission.available}"></td>
-        <td th:text="${permission.name}"></td>
-        <td th:text="${permission.resourceType}"></td>
-        <td th:text="${permission.url}"></td>
+        <td th:text="${permission.description}"></td>
+        <td th:text="${permission.role}"></td>
+        <td th:text="${permission.id}"></td>
+        <td th:text="${permission.sysPermissionList[0].parentId}"></td>
+        <td th:text="${permission.sysPermissionList[0].parentIds}"></td>
+        <td th:text="${permission.sysPermissionList[0].permission}"></td>
+        <td th:text="${permission.sysPermissionList[0].available}"></td>
+        <td th:text="${permission.sysPermissionList[0].name}"></td>
+        <td th:text="${permission.sysPermissionList[0].resourceType}"></td>
+        <td th:text="${permission.sysPermissionList[0].url}"></td>
     </tr>
 </table>
 </body>
