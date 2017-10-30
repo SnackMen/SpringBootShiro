@@ -12,7 +12,9 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Map;
+import java.util.Random;
 
 @Controller
 public class RegisterController {
@@ -48,7 +50,6 @@ public class RegisterController {
         context.setVariable("username",userInfo.getUsername());
         String emailContent = templateEngine.process("emailTemplate", context);
         mailService.sendHtmlMail(userInfo.getEmail(), "账号激活", emailContent);
-        System.out.println("发送邮件成功！");
 
         map.put("name",userInfo.getName());
         if(count > 0)
@@ -68,4 +69,25 @@ public class RegisterController {
             return "register";
     }
 
+    @RequestMapping("/forgetpassword")
+    public String changePassword(){
+        return "forgetPassword";
+    }
+
+
+    @RequestMapping(value = "/forgetPassword",method = RequestMethod.POST)
+    public void getValidateCode(HttpServletRequest request)throws Exception {
+        Random rdm = new Random();
+        String hash1 = Integer.toHexString(rdm.nextInt());
+        String capstr = hash1.substring(0, 4);
+        HttpSession session = request.getSession();
+        session.setAttribute("validateCode", capstr);
+        //需要先判断账号对应的邮箱是否存在，账号是否存在，这里前端框架应该是有的，所以暂时不处理
+        Context context = new Context();
+        context.setVariable("validateCode", capstr);
+        String emailContent = templateEngine.process("changePasswordTemplate", context);
+        System.out.println(request.getParameter("email"));
+        mailService.sendHtmlMail(request.getParameter("email"), "找回密码", emailContent);
+        System.out.println("发送邮件成功！");
+    }
 }

@@ -72,7 +72,15 @@ public class ShiroConfig {
         //注册页面
         filterChainDefinitionMap.put("/register","anon");
         filterChainDefinitionMap.put("/activation","anon");
+        filterChainDefinitionMap.put("/forgetPassword","anon");
+        filterChainDefinitionMap.put("/forgetpassword","anon");
         filterChainDefinitionMap.put("/registerUser","anon");
+        filterChainDefinitionMap.put("/personal","anon");
+        filterChainDefinitionMap.put("/userMessage","anon");
+        filterChainDefinitionMap.put("/userRole","anon");
+        filterChainDefinitionMap.put("/roleMessage","anon");
+        filterChainDefinitionMap.put("/rolePermission","anon");
+        filterChainDefinitionMap.put("/permissionMessage","anon");
         filterChainDefinitionMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilters(filterMap);
         shiroFilterFactoryBean.setSecurityManager(securityManager);

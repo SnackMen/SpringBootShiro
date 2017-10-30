@@ -1,6 +1,7 @@
 package com.ws.spring.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class UserInfo implements Serializable {
 
@@ -19,6 +20,12 @@ public class UserInfo implements Serializable {
     private Integer state;
 
     private String email;
+
+    private Date registerTime;
+
+    private Date lastLoginTime;
+
+    private String online;
 
     private SysRole sysRole;
 
@@ -96,6 +103,30 @@ public class UserInfo implements Serializable {
         this.email = email;
     }
 
+    public Date getRegisterTime() {
+        return registerTime;
+    }
+
+    public void setRegisterTime(Date registerTime) {
+        this.registerTime = registerTime;
+    }
+
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
+    }
+
+    public String getOnline() {
+        return online;
+    }
+
+    public void setOnline(String online) {
+        this.online = online;
+    }
+
     @Override
     public String toString() {
         return "UserInfo{" +
@@ -106,6 +137,9 @@ public class UserInfo implements Serializable {
                 ", salt='" + salt + '\'' +
                 ", state=" + state +
                 ", email='" + email + '\'' +
+                ", registerTime=" + registerTime +
+                ", lastLoginTime=" + lastLoginTime +
+                ", online='" + online + '\'' +
                 ", sysRole=" + sysRole +
                 '}';
     }

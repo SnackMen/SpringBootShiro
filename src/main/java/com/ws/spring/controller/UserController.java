@@ -18,7 +18,7 @@ import java.util.List;
 
 //@RestController
 @Controller
-@RequestMapping("/user")
+//@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -42,7 +42,7 @@ public class UserController {
         return "userInfoJson";
     }
 
-    @PostMapping("/userMessage")
+    @GetMapping("/userMessage")
     public String getUserMessage(ModelMap modelMap){
         List<UserInfo> list = iUserInfoService.getAll();
         modelMap.addAttribute("userList", list);

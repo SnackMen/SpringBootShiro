@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -56,6 +57,12 @@ public class IUserInfoDaoTest {
     @Test
     public void getIdByUsername() throws Exception {
         System.out.println(iUserInfoDao.getIdByUsername("test"));
+    }
+
+    @Test
+    public void getUserInfo() throws Exception{
+        List<UserInfo> list = iUserInfoDao.getUserInfoListByOnline("1");
+        System.out.println(list);
     }
 
 }

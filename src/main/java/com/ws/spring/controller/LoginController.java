@@ -1,12 +1,14 @@
 package com.ws.spring.controller;
 
+import com.ws.spring.entity.PersonalInfo;
+import com.ws.spring.entity.UserInfo;
+import com.ws.spring.service.IUserInfoService;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,11 +16,16 @@ import javax.servlet.http.HttpSession;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.Map;
 import java.util.Random;
+import java.util.List;
 
 @Controller
 public class LoginController {
+
+    @Autowired
+    IUserInfoService iUserInfoService;
 
     @RequestMapping({"/", "/index"})
     public String index() {
@@ -108,5 +115,18 @@ public class LoginController {
         OutputStream strm = resp.getOutputStream();
         ImageIO.write(image, "jpeg", strm);
         strm.close();
+    }
+
+    @RequestMapping("/personal")
+    public String getPersonalPage(HttpServletRequest request, Map<String, Object> map) throws Exception{
+        List<UserInfo> userInfoList = iUserInfoService.getUserInfoListByOnline("1");
+        String username = request.getSession().getAttribute("username").toString();
+        PersonalInfo personalInfo = iUserInfoService.getPersonalInfo(username);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        map.put("personalInfo", personalInfo);
+        map.put("registerTime",simpleDateFormat.format(personalInfo.getRegisterTime()));
+        map.put("lastLoginTime",simpleDateFormat.format(personalInfo.getLastLoginTime()));
+        map.put("userInfoList",userInfoList);
+        return "personal";
     }
 }
