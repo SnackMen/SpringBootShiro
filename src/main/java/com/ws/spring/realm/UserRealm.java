@@ -26,6 +26,7 @@ public class UserRealm extends AuthorizingRealm {
 
     /**
      * 授权
+     * AuthorizationInfo 表示当前用户（subject）对应的角色信息，权限信息
      * @param principalCollection
      * @return
      */
@@ -44,6 +45,7 @@ public class UserRealm extends AuthorizingRealm {
 
     /**
      * 认证
+     * AuthenticationInfo 提供账户信息返回认证信息
      * @param authenticationToken
      * @return
      * @throws AuthenticationException

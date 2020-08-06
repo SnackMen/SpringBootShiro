@@ -54,6 +54,9 @@ public class ShiroConfig {
 
         Map<String,Filter> filterMap = shiroFilterFactoryBean.getFilters();
         UserLoginFormAuthenticationFilter formAuthenticationFilter = new UserLoginFormAuthenticationFilter();
+        //shiro中内置了多个filter 可以在defaultfilter中找到这些过滤器，其中关于用户登录验证的是
+        //FormAuthenticationFilter，因为内部是一个map存储，key是authc
+        //所以如果想自定义一个覆盖这个过滤器，就需要继承FormAuthenticationFilter，重写其中的相关方法，然后覆盖map中的过滤器
         filterMap.put("authc",formAuthenticationFilter);
 
         //拦截器.
